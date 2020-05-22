@@ -9,7 +9,34 @@
       <el-container>
         <el-aside width="148px"
                   class="aside">
-          <aside></aside>
+          <aside>
+            <div class="aside-items">
+              <img src="../../assets/comment/home_leftbar_icon01.png"
+                   alt="">
+              <p>招商详情</p>
+            </div>
+          </aside>
+          <aside>
+            <div class="aside-items">
+              <img src="../../assets/comment/home_leftbar_icon01.png"
+                   alt="">
+              <p>招商详情</p>
+            </div>
+          </aside>
+          <aside>
+            <div class="aside-items">
+              <img src="../../assets/comment/home_leftbar_icon01.png"
+                   alt="">
+              <p>招商详情</p>
+            </div>
+          </aside>
+          <aside>
+            <div class="aside-items">
+              <img src="../../assets/comment/home_leftbar_icon01.png"
+                   alt="">
+              <p>招商详情</p>
+            </div>
+          </aside>
         </el-aside>
         <el-main class="main">
           <div class="content-title">
@@ -81,8 +108,25 @@ export default {
       }
     }
     .aside {
-      background-color: #0f0;
+      background-color: rgba(10, 13, 51, 0.7);
       margin-right: 19px;
+
+      aside {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 140px;
+
+        .aside-items {
+          text-align: center;
+          p {
+            margin-top: 5px;
+            display: block;
+            color: #fff;
+          }
+        }
+      }
     }
     .main {
       .content-title {

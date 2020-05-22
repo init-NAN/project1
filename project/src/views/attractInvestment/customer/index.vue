@@ -240,7 +240,7 @@ export default {
         address: '上海市普陀区金沙江路 1516 弄'
       }],
       page1: 1,
-      dialogFormVisible: true,
+      dialogFormVisible: false,
       form: {
         username: "",
         password: "",
@@ -302,6 +302,7 @@ export default {
 
       this.dialogFormVisible = true;
     },
+
   }
 }
 
@@ -390,14 +391,19 @@ export default {
   border-color: #fff;
   background-color: transparent;
 }
+//模态框
 .el-dialog {
   margin-top: 0;
-  background-color: rgba(10, 13, 51, 0.9);
+  background-color: rgba(10, 13, 51, 0.7);
   color: #fff;
   width: 1200px;
   transform-origin: 1281px 246px;
   .el-dialog__title {
     color: #fff;
+  }
+  /deep/ .el-input__inner,.el-textarea__inner {
+    background-color: transparent;
+    border:1px solid rgba(158,162,192,1);
   }
 }
 
@@ -442,9 +448,15 @@ export default {
         }
       }
     }
-    /deep/ .el-dialog__header {
-      background: url('../../../assets/comment/type(1).png') no-repeat;
-    }
+  }
+  //dialog 页眉页脚
+  /deep/ .el-dialog__header {
+    background: url("../../../assets/comment/type(1).png") no-repeat;
+    padding: 10px 20px 10px;
+  }
+   /deep/ .el-dialog__footer {
+     background: url('../../../assets/comment/type(2).png') no-repeat right;
+     padding: 50px 20px 20px;
   }
 }
 </style>

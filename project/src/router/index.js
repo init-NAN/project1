@@ -9,6 +9,7 @@ const login = () => import('@/views/login/')
 const attractInvestment = () => import('@/views/attractInvestment/')
     //资源
 const resources = () => import('@/views/attractInvestment/resources/')
+const charts = () => import('@/views/attractInvestment/resources/charts/')
     //合同
 const contract = () => import('@/views/attractInvestment/contract/')
     //客户
@@ -24,9 +25,10 @@ const routes = [
 
     children: [
       { path: '/resources', component: resources },
+      { path: '/charts', component: charts },
       { path: '/contract', component: contract },
       { path: '/customer', component: customer},
-      {path: '/contractTemplate', component:contractTemplate}
+      { path: '/contractTemplate', component:contractTemplate}
     ]
   }
 ]

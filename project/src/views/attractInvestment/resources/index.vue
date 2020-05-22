@@ -5,15 +5,33 @@
               stripe
               ref="table">
       <el-table-column prop="date"
-                       label="日期"
-                       width="180">
+                       label="名称"
+                       width="180px"
+                       >
       </el-table-column>
       <el-table-column prop="name"
-                       label="姓名"
-                       width="180">
+                       label="房间数量">
       </el-table-column>
       <el-table-column prop="address"
-                       label="地址">
+                       label="管理面积">
+      </el-table-column>
+      <el-table-column prop="address"
+                       label="在租面积">
+      </el-table-column>
+      <el-table-column prop="address"
+                       label="出租率">
+      </el-table-column>
+      <el-table-column prop="address"
+                       label="空置面积">
+      </el-table-column>
+      <el-table-column prop="address"
+                       label="空置率">
+      </el-table-column>
+      <el-table-column prop="address"
+                       label="利用率">
+      </el-table-column>
+      <el-table-column prop="address"
+                       label="在租合同份数">
       </el-table-column>
     </el-table>
     <div class="pager-box">
@@ -26,7 +44,7 @@
                      :total="400">
       </el-pagination>
     </div>
-
+    <el-button type="primary" class="gotoList" @click="$router.push('charts')">查看图表</el-button>
   </div>
 </template>
 
@@ -46,10 +64,6 @@ export default {
         date: '2016-05-01',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1519 弄'
-      }, {
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1516 弄'
       }],
       page1:1
     }
@@ -159,4 +173,8 @@ export default {
     background-color: transparent;
 }
 
+.gotoList {
+  margin-top: -10px;
+  margin-bottom: 5px;
+}
 </style>
