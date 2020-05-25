@@ -56,14 +56,13 @@
                      :total="400">
       </el-pagination>
     </div>
-
-    <el-dialog title="编辑用户"
+    <el-button type="primary" class="add-customer" @click="dialogFormVisible=true">新建用户</el-button>
+    <el-dialog title="新建/编辑用户"
                :visible.sync="dialogFormVisible">
       <div class="flex-space-between____c">
         <el-card class="box-card">
           <div slot="header"
                class="clearfix">
-            <span>卡片名称</span>
           </div>
           <el-form :model="form"
                    :rules="rules"
@@ -91,7 +90,7 @@
             <el-row :gutter="30">
               <el-col :span="11">
                 <el-form-item label="客户状态:">
-                  <el-select v-model="form.region"
+                  <el-select v-model="form.tpye"
                              placeholder="请选择活动区域">
                     <el-option label="潜在客户"
                                value="shanghai"></el-option>
@@ -112,7 +111,7 @@
             <el-row :gutter="30">
               <el-col :span="11">
                 <el-form-item label="联系电话:">
-                  <el-input v-model="form.name"
+                  <el-input v-model="form.tel"
                             autocomplete="off"></el-input>
                 </el-form-item>
               </el-col>
@@ -404,10 +403,12 @@ export default {
   /deep/ .el-input__inner,.el-textarea__inner {
     background-color: transparent;
     border:1px solid rgba(158,162,192,1);
+    color: #fff;
   }
 }
 
 .customer {
+  position: relative;
   .flex-space-between____c {
     display: flex;
     justify-content: space-between;
@@ -449,13 +450,18 @@ export default {
       }
     }
   }
+  .add-customer {
+    position: absolute;
+    top: -20px;
+    right: 0;
+  }
   //dialog 页眉页脚
   /deep/ .el-dialog__header {
-    background: url("../../../assets/comment/type(1).png") no-repeat;
+    background: url("../../../../assets/comment/type(1).png") no-repeat;
     padding: 10px 20px 10px;
   }
    /deep/ .el-dialog__footer {
-     background: url('../../../assets/comment/type(2).png') no-repeat right;
+     background: url('../../../../assets/comment/type(2).png') no-repeat right;
      padding: 50px 20px 20px;
   }
 }

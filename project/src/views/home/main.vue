@@ -1,5 +1,5 @@
 <template>
-  <div class="attractInvestment">
+  <div class="home-main">
     <el-container class="content">
       <el-header class="top-nav"
                  height="130px">
@@ -9,55 +9,34 @@
       <el-container>
         <el-aside width="148px"
                   class="aside">
-          <aside>
-            <div class="aside-items">
-              <img src="../../assets/comment/home_leftbar_icon01.png"
-                   alt="">
-              <p>招商详情</p>
-            </div>
-          </aside>
-          <aside>
-            <div class="aside-items">
-              <img src="../../assets/comment/home_leftbar_icon01.png"
-                   alt="">
-              <p>招商详情</p>
-            </div>
-          </aside>
-          <aside>
-            <div class="aside-items">
-              <img src="../../assets/comment/home_leftbar_icon01.png"
-                   alt="">
-              <p>招商详情</p>
-            </div>
-          </aside>
-          <aside>
-            <div class="aside-items">
-              <img src="../../assets/comment/home_leftbar_icon01.png"
-                   alt="">
-              <p>招商详情</p>
-            </div>
-          </aside>
+          <el-menu default-active="2"
+                   router
+                   class="el-menu-vertical-demo"
+                   @open="handleOpen"
+                   @close="handleClose"
+                   background-color="transparent"
+                   text-color="#fff"
+                   active-text-color="#ffd04b">
+            <el-menu-item index="/resources">
+              <i class="el-icon-help"></i>
+              <span slot="title">招商详情</span>
+            </el-menu-item>
+            <el-menu-item index="/customer">
+              <i class="el-icon-data-analysis"></i>
+              <span slot="title">客户管理</span>
+            </el-menu-item>
+            <el-menu-item index="/contract">
+              <i class="el-icon-s-data"></i>
+              <span slot="title">物业详情</span>
+            </el-menu-item>
+            <el-menu-item index="/contractTemplate">
+              <i class="el-icon-video-play"></i>
+              <span slot="title">物业报修</span>
+            </el-menu-item>
+          </el-menu>
         </el-aside>
         <el-main class="main">
-          <div class="content-title">
-            <p>{{contentTitle}}</p>
-            <el-menu default-active="/resources"
-                     router
-                     mode="horizontal"
-                     text-color="#999999"
-                     color="#144a9e"
-                     active-text-color="#ffffff">
-              <el-menu-item :index="items.src"
-                            v-for="(items,index) in relations"
-                            :key='index'
-                            @click="changeTitle(items.text)">{{items.text}}</el-menu-item>
-            </el-menu>
-            <div class="line"></div>
-          </div>
-          <div class="second-content">
-            <p class="content2-title">{{contentTitle2}}</p>
-            <router-view></router-view>
-          </div>
+          <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -68,14 +47,6 @@
 export default {
   data () {
     return {
-      contentTitle: '招商',
-      contentTitle2: '资源',
-      relations: [
-        { text: '资源', id: 'program', src: '/resources' },
-        { text: '合同', id: 'person', src: '/contract' },
-        { text: '客户', id: 'organization', src: '/customer' },
-        { text: '合同模板', id: 'tech', src: '/contractTemplate' },
-      ],
       nowIndex: 0
     }
   },
@@ -84,6 +55,12 @@ export default {
       this.contentTitle2 = text;
 
       // this.contentTitle2 = this.realtions[index].text
+    },
+    handleOpen (key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose (key, keyPath) {
+      console.log(key, keyPath);
     }
 
 
@@ -92,7 +69,7 @@ export default {
 </script>
 
 <style lang="less" scope>
-.attractInvestment {
+.home-main {
   height: 100%;
   width: 100%;
   .content {
@@ -110,7 +87,21 @@ export default {
     .aside {
       background-color: rgba(10, 13, 51, 0.7);
       margin-right: 19px;
-
+      /deep/ .el-menu {
+        border: none;
+      }
+      /deep/ .el-menu-item {
+        height: 85px;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        line-height: 20px;
+        [class^=el-icon-] {
+          margin: 0;
+          margin-bottom: 10px;
+        }
+      }
       aside {
         display: flex;
         justify-content: center;

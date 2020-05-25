@@ -42,7 +42,9 @@
     <el-button type="primary"
                class="addList"
                @click="dialogAddList = true">新建</el-button>
-
+    <el-button type="primary"
+               class="del-btn"
+               :disabled="isDisabled">批量删除</el-button>
     <el-dialog title="新建合同模板"
                :visible.sync="dialogAddList">
       <div class="todolist">
@@ -122,6 +124,7 @@ export default {
         name: '王小虎',
         address: '上海市普陀区金沙江路 1516 弄'
       }],
+      isDisabled: true,
       page1: 1,
       dialogAddList: false,
       form: {
@@ -190,6 +193,7 @@ export default {
 
       this.dialogFormVisible = true;
     },
+    //download
     filerightDown (index, fileName1) {//index 接口参数  fileName文件名字
       // var _this = this;
       var fileName = fileName1;
@@ -218,7 +222,13 @@ export default {
       }
     },
     handleSelectionChange (val) {
+      window.console.log(val)
       this.multipleSelection = val;
+      if (val != []) {
+        this.isDisabled = false
+      } else if (val == []) {
+        this.isDisabled = true
+      }
     },
 
     //shangchuan
@@ -343,8 +353,9 @@ export default {
   li:not(.disabled).active {
   background-color: #0ffff3 !important;
 }
-.pager-box /deep/ .btn-next , .btn-prev {
-  color:#fff
+.pager-box /deep/ .btn-next,
+.btn-prev {
+  color: #fff;
 }
 .pager-box /deep/.el-pagination {
   color: rgba(255, 255, 255, 1);
@@ -418,14 +429,21 @@ export default {
       }
     }
     /deep/ .el-dialog__header {
-      background: url("../../../assets/comment/type(1).png") no-repeat;
+      background: url("../../../../assets/comment/type(1).png") no-repeat;
     }
   }
 
-  .addList {
+  .addList,
+  .del-btn {
     position: absolute;
+  }
+  .addList {
     top: 15px;
-    right: 15px;
+    right: 120px;
+  }
+  .del-btn {
+    top: 15px;
+    right: 0;
   }
 
   .todolist {
@@ -443,11 +461,11 @@ export default {
   }
 
   /deep/ .el-dialog__header {
-    background: url("../../../assets/comment/type(1).png") no-repeat;
+    background: url("../../../../assets/comment/type(1).png") no-repeat;
     padding: 10px 20px 10px;
   }
   /deep/ .el-dialog__footer {
-    background: url("../../../assets/comment/type(2).png") no-repeat right ;
+    background: url("../../../../assets/comment/type(2).png") no-repeat right;
     padding: 50px 20px 20px;
   }
 }
